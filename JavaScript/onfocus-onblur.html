@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="手机">
+    <script>
+        // 首先表单需要2个时间，获得焦点onfocus、onblur失去焦点
+        //如果获得焦点，判断表单里面的内容是否默认为文字，如果默认为文字，就清空表单内容
+        //如果失去焦点，判断表单内容是否为空，如果为空就改为默认文字
+        //获得元素
+        var input = document.querySelector("input");
+        //注册事件，获得焦点时间onfocus
+        input.onfocus = function() {
+                if (input.value === "手机") {
+                    this.value = "";
+                }
+                this.style.color = "red";
+            }
+            //3.注册事件、失去焦点事件onblur
+        input.onblur = function() {
+            if (input.value === "") {
+                this.value = "手机";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

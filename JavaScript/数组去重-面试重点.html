@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //核心算法：遍历数组，拿着旧数组元素去查询新数组，如果钙元素在新数组中没有出现过，我们就添加，否则不添加
+        //  我们怎么知道钙元素没有存在，利用indexOf（数组元素）如果返回-1就说明新数组没有钙元素
+
+        function unique(arr) {
+            var newArr = [];
+            for (var i = 0; i < arr.length; i++) {
+
+                if (newArr.indexOf(arr[i]) === -1) {
+                    newArr.push(arr[i]);
+                }
+            }
+            return newArr;
+        }
+        var demo = unique([1, 6, 10, 25, 1, 6, 20]);
+        console.log(demo);
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

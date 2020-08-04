@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getArrMax(arr) { //arr接受一个数组
+            var max = arr[0];
+            for (var i = 1; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i];
+                }
+            }
+            return max;
+        }
+        //在实际开发里面，经常用一个变量来接收函数的返回结果，使用更简单
+        var re = getArrMax([5, 2, 99, 101, 67, 77]);
+        console.log(re);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

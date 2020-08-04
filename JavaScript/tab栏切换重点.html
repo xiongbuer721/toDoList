@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab {
+            width: 700px;
+            height: 50px;
+            vertical-align: middle;
+            margin: 0 auto;
+        }
+        
+        li {
+            list-style: none;
+            float: left;
+        }
+        
+        .tab_list li {
+            float: left;
+            height: 39px;
+            line-height: 39px;
+            padding: 0 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .tab_list .current {
+            background-color: #c81623;
+            color: #fff;
+        }
+        
+        .item_info {
+            padding: 20px 0 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="tab_con">
+        <div class="item">
+            商品介绍模块
+        </div>
+        <div class="item">
+            规格与包装模块内容
+        </div>
+        <div class="item">
+            售后保障模块
+        </div>
+        <div class="item">
+            商品评价模块
+        </div>
+        <div class="item">
+            手机社区模块
+        </div>
+    </div>
+    <script>
+        //1 tab栏切换有2个大的模块
+        //上面的模块选项卡，点击某一个，当前这一个底色会是红色，其余不变（排他思想
+        //下面的模块内容，会跟随上面的选项卡变化，所以下面模块变化写到点击事件
+        //规律：下面的模块显示内容和上面的选项卡一一对应，相匹配
+        //核心思路：给上面的tab_list里面的所有小li添加自定义属性，属性值从0开始
+        var tab_list = document.querySelector(".tab_list");
+        var lis = tab_list.querySelectorAll("li");
+        var items = document.querySelectorAll(".item");
+        //for循环绑定事件
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].setAttribute("index", i)
+            lis[i].onclick = function() {
+                //排他算法
+                for (var i = 0; i < lis.length; i++) {
+                    //排他思想，清除所有的类·
+                    lis[i].className = "";
+                }
+
+                //留下我自己
+                this.className = "current";
+                //2.下面的显示内容模块
+                var index = this.getAttribute("index");
+                console.log(index);
+                //干掉所有人，让齐豫的item隐藏
+                for (var i = 0; i < items.length; i++) {
+                    items[i].style.display = "none";
+                }
+                items[index].style.display = "block";
+
+            }
+        }
+    </script>
+</body>
+
+</html>

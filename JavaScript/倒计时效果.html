@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 30px;
+        height: 30px;
+        background-color: rgb(61, 58, 58);
+        color: wheat;
+        float: left;
+        text-align: center;
+        line-height: 30px;
+        margin: 5px;
+    }
+</style>
+
+<body>
+    <div class="hour"></div>
+    <div class="minute"></div>
+    <div class="seconds"></div>
+    <script>
+        //1.获取元素
+        var hour = document.querySelector(".hour");
+        var minute = document.querySelector(".minute");
+        var seconds = document.querySelector(".seconds");
+        var inputTime = +new Date('2020-7-15 18:00:00');
+
+        //返回的是用户输入时间总的毫秒数
+        countDown(); //我们先调用一次，是为了页面一刷新就能出现时倒计时时间
+        //2.开启定时器
+        setInterval(countDown, 1000);
+
+        function countDown() {
+            var nowTime = +new Date(); //返回的是当前时间总的毫秒数
+            var times = (inputTime - nowTime) / 1000; //time是剩余时间总的秒数
+            var h = parseInt(times / 60 / 60 % 24);
+            //计算小时
+            h = h < 10 ? '0' + h : h;
+            hour.innerHTML = h;
+            m = parseInt(times / 60 % 60); //计分数
+            m = m < 10 ? '0' + m : m;
+            minute.innerHTML = m;
+            s = parseInt(times % 60);
+            s = s < 10 ? '0' + s : s;
+            seconds.innerHTML = s;
+
+        }
+    </script>
+</body>
+
+</html>

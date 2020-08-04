@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num = prompt("请输入班级学生人数");
+        var sum = 0;
+        var aver = 0;
+        for (var i = 1; i <= num; i++) {
+            var score = prompt("请输入第" + i + "个同学的成绩");
+            //从prompt传过来的的数据类型是字符串型的·
+            sum = sum + parseFloat(score);
+        }
+        var aver = sum / num;
+        alert("班级的平均分为" + aver);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

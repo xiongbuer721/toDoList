@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 300px;
+            margin: 10px auto;
+        }
+        
+        thead {
+            background-color: cornflowerblue;
+        }
+        
+        tbody td {
+            border: 1px solid rgb(197, 216, 236);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        //准备好数据
+        var datas = [{
+            name: "张三",
+            subject: "js",
+            score: 100
+        }, {
+            name: "李四",
+            subject: "js",
+            score: 88
+        }, {
+            name: "王五",
+            subject: "js",
+            score: 78
+        }, {
+            name: "众力",
+            subject: "js",
+            score: 99
+        }];
+        //2往tbody里面创建行
+        var tbody = document.querySelector("tbody");
+        for (var i = 0; i < datas.length; i++) { //外面的for循环管行tr
+            var tr = document.createElement("tr");
+            tbody.appendChild(tr);
+            //行里面创建单元格 td,单元格的数量取决于每个队选哪个里面的属性个数 for循环遍历对象
+            for (k in datas[i]) {
+                //内循环管列
+                //创建单元格
+                var td = document.createElement("td");
+                //把对象里面的属性值datas[i][k]给td
+                // console.log(datas[i][k]);
+                td.innerHTML = datas[i][k];
+                tr.appendChild(td);
+            }
+            //3.创建有删除2个字的单元格
+            var td = document.createElement("td");
+            td.innerHTML = "<a href='javascript:;'>删除</a>";
+            tr.appendChild(td);
+
+
+        }
+        //4.删除操作开始
+        var as = document.querySelectorAll("a");
+        for (var i = 0; i < as.length; i++) {
+            as[i].onclick = function() {
+                //点击a删除当前a所在行（链接爸爸的爸爸）node.removeChild
+                tbody.removeChild(this.parentNode.parentNode);
+            }
+        }
+        //for(var k in obj){
+        // k得到的是属性名
+        //obj[k]得到的是属性值
+        // }
+    </script>
+</body>
+
+</html>

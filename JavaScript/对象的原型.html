@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	    //每个构造函数都有一个属性  原型、原型对象
+	    function Student(name,age,sex) {
+	    	this.name=name;
+	    	this.age=age;
+	    	this.sex=sex;
+	    	//this.sayHi=function() {
+	    	// 		console.log('大家好，我是'+this.name);
+	    	// }
+	    }
+	    // console.dir(Student.prototype);
+	   Student.prototype.sayHi=function () {
+	   	//原型构造的方法，里面所有的对象都可以访问
+	   	console.log('大家好，我是'+this.name);
+	   }
+	   //通过Student构造函数，创建的函数，可以访问Student.prototype中的成员
+	   var s1=new Student('lelei',18,'男');
+	   var s2=new Student('hanmeimei',18,'女');
+	   s1.sayHi();
+	   // console.dir(s1);
+	   //当调用对象的属性或者方法的时候，先去找对象本身的属性方法，如果对象没有该属性或者方法。此时去调用原型中的属性
+	   //s1._proto_  对象的——proto_等于构造函数的Student.prototype
+	   // //_proto_属性是非标准的属性
+	   // console.log(s1._proto_===Student.prototype);
+	   //在原型对象中有一个属性 constructor构造函数
+	   //
+	   //constructor 作用记录了创建该对象的构造函数
+	   console.log(s1.constructor===Student);
+	   var arr=[];
+	   //Array.prototype.constructor
+	   console.log(arr.constructor===Array);
+</script>

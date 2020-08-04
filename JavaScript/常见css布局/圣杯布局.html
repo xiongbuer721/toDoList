@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ui-wrap {
+            overflow: hidden;
+            clear: both;
+            padding: 0 200px;
+        }
+        
+        .s-middle,
+        .s-left,
+        .s-right {
+            float: left;
+            height: 200px;
+        }
+        
+        .s-left,
+        .s-right {
+            position: relative;
+            width: 200px;
+        }
+        
+        .s-middle {
+            width: 100%;
+            background: red;
+        }
+        
+        .s-left {
+            left: -200px;
+            background: green;
+            margin-left: -100%;
+        }
+        
+        .s-right {
+            right: -200px;
+            margin-left: -200px;
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ui-wrap">
+        <div class="s-middle"></div>
+        <div class="s-left"></div>
+        <div class="s-right"></div>
+        <!-- 中间栏放前面优先渲染 -->
+    </div>
+
+</body>
+
+</html>

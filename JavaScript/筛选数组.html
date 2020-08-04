@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //将数组arr中大于10得元素选出来，放入新数组
+        //1.声明一个新的数组用于存放新的数据newarr
+        //2.遍历原来的就数组找出大于10的元素
+        //3.依次追加给新的数组newarr
+        //方法1
+        /* var arr = [0, 3, 4, 5, 77, 15, 62, 35];
+         var newarr = [];
+         var j = 0;
+         for (var i = 0; i < arr.length; i++) {
+             if (arr[i] > 10) {
+                 //新数组应该从0开始依次递增
+                 newarr[j] = arr[i];
+                 j++
+             }
+         }
+         console.log(newarr);*/
+        //方法2
+        var arr = [0, 3, 4, 5, 77, 15, 62, 35];
+        var newarr = []; //newarr的length为0
+        var j = 0;
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] > 10) {
+                //新数组应该从0开始依次递增
+                newarr[newarr.length] = arr[i];
+
+            }
+        }
+        console.log(newarr);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

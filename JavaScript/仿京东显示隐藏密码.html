@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 400px;
+            border: 1px solid red;
+            margin: 100px auto;
+        }
+        
+        .box input {
+            width: 370px;
+            height: 30px;
+        }
+        
+        .box img {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <label for=""> <img src="./img/b.png" alt=""id="eye"></label>
+        <input type="password" name="" id="psw">
+
+    </div>
+    <script>
+        //1获取元素
+        var eye = document.getElementById("eye");
+        var input = document.getElementById("psw");
+        //2 注册事件处理程序
+        var flag = 0; //记录点击次数
+        eye.onclick = function() {
+            if (flag == 0) {
+                psw.type = "text";
+                eye.src = "./img/z.png";
+                flag = 1;
+            } else {
+                psw.type = "password";
+                eye.src = "./img/b.png";
+                flag = 0;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

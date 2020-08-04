@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+            margin: 0;
+        }
+        
+        thead {
+            background: blue;
+        }
+        
+        tbody {
+            background: #c0c0c0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="cbAll"></th>
+                    <th>商品</th>
+                    <th>价格</th>
+                </tr>
+            </thead>
+            <tbody id="tb">
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>iphone11</td>
+                    <td>5999</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>iPad Pro</td>
+                    <td>5000</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>iPad Air</td>
+                    <td>2000</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Apple Watch</td>
+                    <td>2000</td>
+                </tr>
+            </tbody>
+
+        </table>
+        <input type="button" id="btn" value="反选">
+    </div>
+    <script>
+        // 1.全选
+        // 1.1获取父CheckBox注册点击事件
+        var cbAll = document.getElementById("cbAll");
+        var inputs = document.getElementById("tb").getElementsByTagName("input");
+        cbAll.onclick = function() {
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].checked = this.checked;
+            }
+        }
+
+        //2下面复选框全部选中，上面全选才能选择中做法，给下面的复选框注册点击事件，每次点击都要循环
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].onclick = function() {
+                var flag = true;
+                for (var i = 0; i < inputs.length; i++) {
+                    if (!inputs[i].checked) {
+                        flag = false;
+                        break;
+                    }
+                }
+                cbAll.checked = flag;
+            }
+        }
+        // 1.2找到所有子CheckBox并让所有的子CheckBox状态和父保持一致
+        // 2反选
+    </script>
+</body>
+
+</html>

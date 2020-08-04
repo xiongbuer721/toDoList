@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .sliderbar {
+        width: 60px;
+        height: 40px;
+        background-color: pink;
+        position: fixed;
+        text-align: center;
+        bottom: 100px;
+        right: 0;
+        bottom: 100px;
+        line-height: 40px;
+        color: #ffffff;
+    }
+    
+    .con {
+        width: 200px;
+        height: 40px;
+        background-color: darkmagenta;
+        position: absolute;
+        left: 0;
+        top: 0px;
+        z-index: -1;
+    }
+</style>
+
+<body>
+    <div class="sliderbar">
+        <span></span>
+        <div class="con">问题反馈</div>
+    </div>
+
+    <script src="animate.js"></script>
+    <script>
+        var sliderbar = document.querySelector('.sliderbar');
+        var con = document.querySelector('.con');
+        sliderbar.addEventListener('mouseenter', function() {
+            animate(con, -140, function() {
+                sliderbar.children[0].innerHTML = '→';
+            });
+
+        })
+        sliderbar.addEventListener('mouseleave', function() {
+            animate(con, 0, function() {
+                sliderbar.children[0].innerHTML = '←';
+            });
+
+        })
+    </script>
+</body>
+
+</html>

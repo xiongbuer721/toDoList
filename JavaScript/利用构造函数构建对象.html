@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 构造函数的格式
+        /*  function 构造函数名(){
+              this.属性=值;
+              this.方法=function(){
+
+              }
+          }
+          new 构造函数名();*/
+        //构造函数的首字母要大写
+        function Star(uname, age, sex) {
+            this.name = uname;
+            this.age = age;
+            this.sex = sex;
+
+        }
+        var per1 = new Star("张三", "18", "男");
+        //调用函数返回的是一个对象
+        // console.log(typeof per1);
+        console.log(per1.name);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
